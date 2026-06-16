@@ -52,7 +52,7 @@ export default function Navbar() {
         </ul>
 
         <button
-          className="md:hidden p-2 rounded-xl text-charcoal hover:bg-sand transition-colors"
+          className="md:hidden p-2 rounded-xl text-charcoal hover:bg-green-800 hover:text-white transition-colors"
           aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
           aria-expanded={open}
           aria-controls="mobile-menu"
