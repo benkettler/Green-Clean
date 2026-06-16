@@ -15,9 +15,9 @@ export default function ReviewsCarousel() {
         </p>
       </div>
 
-      <div className="group relative carousel-fade">
+      <div className="relative carousel-fade">
         <div
-          className="flex gap-6 animate-marquee w-max group-hover:[animation-play-state:paused]"
+          className="flex gap-6 animate-marquee w-max"
           style={{ animationDuration: '80s' }}
         >
           {doubled.map((review, i) => (

@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Scissors, Snowflake } from 'lucide-react'
-import SectionHeading from '@/components/ui/SectionHeading'
 import { SERVICES, SERVICES_OVERVIEW } from '@/lib/constants'
 import { cn } from '@/components/ui/cn'
 
@@ -14,12 +13,19 @@ export default function ServicesOverview() {
   return (
     <section className="section-padding bg-background">
       <div className="container-max">
-        <SectionHeading
-          eyebrow={SERVICES_OVERVIEW.eyebrow}
-          title={SERVICES_OVERVIEW.title}
-          subtitle={SERVICES_OVERVIEW.subtitle}
-          className="mb-16"
-        />
+        <div className="text-center mb-16">
+          <span className="text-body font-semibold uppercase tracking-widest text-green-600 block mb-3">
+            {SERVICES_OVERVIEW.eyebrow}
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-heading font-bold text-charcoal mb-4">
+            {SERVICES_OVERVIEW.title}
+          </h2>
+          {SERVICES_OVERVIEW.subtitle && (
+            <p className="text-body-lg text-muted max-w-2xl mx-auto">
+              {SERVICES_OVERVIEW.subtitle}
+            </p>
+          )}
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {SERVICES.map((service, index) => {
