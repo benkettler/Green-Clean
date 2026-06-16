@@ -31,8 +31,5 @@
     @apply max-w-7xl mx-auto;
   }
 
-  .carousel-fade {
-    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-  }
+  .carousel-fade {}
 }
