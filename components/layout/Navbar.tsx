@@ -83,8 +83,8 @@ export default function Navbar() {
                   className={cn(
                     'block px-4 py-3 rounded-xl text-body font-body transition-colors duration-200',
                     pathname === link.href
-                      ? 'bg-sand text-green-600 font-semibold'
-                      : 'text-charcoal hover:bg-sand hover:text-green-600'
+                      ? 'bg-green-800 text-white font-semibold'
+                      : 'text-charcoal hover:bg-green-800 hover:text-white'
                   )}
                 >
                   {link.label}
