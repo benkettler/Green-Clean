@@ -15,7 +15,6 @@ export const SITE = {
 export const NAV_LINKS = [
   { label: 'Startseite', href: '/' },
   { label: 'Leistungen', href: '/leistungen' },
-  { label: 'Kontakt',    href: '/kontakt' },
 ]
 
 // ─── Hero Section (Startseite) ────────────────────────────────────────────────
