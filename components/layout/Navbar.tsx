@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import Button from '@/components/ui/Button'
 import { cn } from '@/components/ui/cn'
 import { NAV_LINKS } from '@/lib/constants'
 
@@ -52,12 +51,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
-          <Link href="/kontakt">
-            <Button size="sm">Kontakt aufnehmen</Button>
-          </Link>
-        </div>
-
         <button
           className="md:hidden p-2 rounded-xl text-charcoal hover:bg-sand transition-colors"
           aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
@@ -91,13 +84,6 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-            <li className="pt-2">
-              <Link href="/kontakt" onClick={() => setOpen(false)}>
-                <Button className="w-full" size="md">
-                  Kontakt aufnehmen
-                </Button>
-              </Link>
-            </li>
           </ul>
         </div>
       )}
