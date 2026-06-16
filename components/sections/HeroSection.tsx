@@ -35,17 +35,13 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
             <Link href="/leistungen">
-              <Button
-                size="lg"
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:shadow-none hover:translate-y-0"
-              >
-                {HERO.cta1}
-              </Button>
+              <Button size="lg">{HERO.cta1}</Button>
             </Link>
             <Link href="/kontakt">
               <Button
+                variant="secondary"
                 size="lg"
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:shadow-none hover:translate-y-0"
+                className="border-white text-white hover:bg-white/10 hover:text-white"
               >
                 {HERO.cta2}
               </Button>
