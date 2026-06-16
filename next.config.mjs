@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const isStatic = process.env.STATIC_EXPORT === 'true'
 
-export default nextConfig;
+const nextConfig = {
+  ...(isStatic && { output: 'export', trailingSlash: true }),
+  images: { unoptimized: isStatic },
+}
+
+export default nextConfig

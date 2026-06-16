@@ -1,31 +1,29 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Outfit } from 'next/font/google'
+import { Inter, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import CookieBanner from '@/components/CookieBanner'
 
-// next/font/google lädt Schriften beim Build lokal herunter → DSGVO-konform, kein Google-Request im Browser
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
 })
 
-const outfit = Outfit({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-outfit',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-playfair',
   display: 'swap',
 })
 
-// ─── Viewport ─────────────────────────────────────────────────────────────────
 export const viewport: Viewport = {
   themeColor: '#2D6A4F',
 }
 
-// ─── Base Metadata ────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.greenundclean.com'), // [DOMAIN]
+  metadataBase: new URL('https://www.greenundclean.com'),
   title: {
     default: 'Gartenpflege Mainz & Rheinhessen | Green & Clean',
     template: '%s | Green & Clean',
@@ -36,9 +34,9 @@ export const metadata: Metadata = {
     'Gartenpflege Rheinhessen',
     'Winterdienst Mainz',
     'Gartenpflege Mainz',
-    'Gartenanlage Rheinhessen',
     'Landschaftspflege Mainz',
     'Winterdienst Alzey',
+    'Gartenpflege Bad Kreuznach',
   ],
   openGraph: {
     type: 'website',
@@ -60,20 +58,19 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-// ─── LocalBusiness Schema (JSON-LD) ──────────────────────────────────────────
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'Green & Clean',                          // [Firmenname]
+  name: 'Green & Clean',
   description:
     'Professionelle Gartenpflege, Winterdienst und Gartenanlage in Rheinhessen.',
-  url: 'https://www.greenundclean.com',           // [DOMAIN]
-  telephone: '+49 151 70059839',                  // [TELEFON]
-  email: 'info@greenundclean.com',                // [EMAIL]
+  url: 'https://www.greenundclean.com',
+  telephone: '+49 151 70059839',
+  email: 'info@greenundclean.com',
   image: 'https://www.greenundclean.com/images/logo-original.png',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Emsdettener Str. 10, c/o Postflex #10122', // [ADRESSE]
+    streetAddress: 'Emsdettener Str. 10, c/o Postflex #10122',
     addressLocality: 'Greven',
     postalCode: '48268',
     addressCountry: 'DE',
@@ -97,11 +94,9 @@ const localBusinessSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={`${inter.variable} ${outfit.variable}`}>
+    <html lang="de" className={`${inter.variable} ${cormorant.variable}`}>
       <head>
-        {/* Preload hero image → schnellerer LCP-Wert */}
         <link rel="preload" as="image" href="/images/hero-garden.jpg" />
-        {/* LocalBusiness structured data für Google */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

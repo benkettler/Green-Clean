@@ -15,7 +15,6 @@ export const SITE = {
 export const NAV_LINKS = [
   { label: 'Startseite', href: '/' },
   { label: 'Leistungen', href: '/leistungen' },
-  { label: 'Über uns',   href: '/ueber-uns' },
   { label: 'Kontakt',    href: '/kontakt' },
 ]
 
@@ -24,8 +23,8 @@ export const NAV_LINKS = [
 export const HERO = {
   eyebrow: 'Gartenpflege & Winterdienst in Rheinhessen',
   h1: {
-    main:      'Professionelle Gartenpflege &',
-    highlight: 'zuverlässiger Winterdienst.',
+    main:      'Professionelle Gartenpflege',
+    highlight: 'und Winterdienst.',
   },
   subtitle: 'Green & Clean betreut Privatkunden, Hausverwaltungen und Gewerbebetriebe in Mainz, Alzey & Bad Kreuznach. Regional, erreichbar und verlässlich.',
   cta1: 'Leistungen entdecken',
@@ -87,7 +86,6 @@ export const CONTACT_FORM = {
       options: [
         { value: 'gartenpflege', label: 'Gartenpflege' },
         { value: 'winterdienst', label: 'Winterdienst' },
-        { value: 'gartenanlage', label: 'Gartenanlage' },
         { value: 'sonstiges',    label: 'Sonstiges' },
       ],
     },
@@ -119,6 +117,8 @@ export const SERVICES = [
       'Saisonale Pflegearbeiten',
       'Allgemeine Gartenarbeiten',
       'Laubentfernung und Gartenreinigung',
+      'Bepflanzungskonzepte mit regionalen Pflanzen',
+      'Neuanlage von Rasenflächen und Beeten',
       'Weitere Leistungen nach individueller Absprache',
     ],
     image:   '/images/gartenpflege.jpg',
@@ -142,25 +142,6 @@ export const SERVICES = [
     ],
     image:   '/images/winterdienst.jpg',
     eyebrow: 'Im Winter für Sie da',
-  },
-  {
-    id: 'gartenanlage',
-    icon: 'Shovel',
-    title: 'Gartenanlage',
-    summary:
-      'Wir gestalten Ihren Außenbereich von Grund auf neu. Von der Planung über die Bepflanzung bis zur fertigen Anlage.',
-    description:
-      'Qualität entsteht nicht zufällig, sondern durch klare Abläufe und sorgfältige Planung. Wir entwickeln individuelle Konzepte, die zu Ihnen, Ihrem Grundstück und Ihrem Budget passen und setzen diese mit denselben Maßstäben um, die unsere Kunden in Rheinhessen kennen.',
-    features: [
-      'Individuelle Gartenplanung und Beratung',
-      'Wegebau und Terrassengestaltung',
-      'Bepflanzungskonzepte mit regionalen Pflanzen',
-      'Neuanlage von Rasenflächen und Beeten',
-      'Zaunbau und Sichtschutzlösungen',
-      'Absprache und Umsetzung nach Ihren Wünschen',
-    ],
-    image:   '/images/gartenanlage.jpg',
-    eyebrow: 'Planung & Umsetzung',
   },
 ]
 
@@ -209,27 +190,6 @@ export const SERVICE_PAGES = {
       'Winterdienst ist Vertrauenssache. Deshalb setzen wir auf feste Ansprechpartner, transparente Abläufe und eine klare Kommunikation vor und während der Wintersaison. Hausverwaltungen schätzen unsere zuverlässige Dokumentation und Erreichbarkeit auch außerhalb der regulären Bürozeiten.',
     ],
   },
-  gartenanlage: {
-    heroSubtitle: 'Wir gestalten Ihren Außenbereich von Grund auf neu. Individuell geplant, sorgfältig umgesetzt und perfekt auf Ihre Wünsche abgestimmt.',
-    steps: [
-      {
-        title: 'Planung',
-        text:  'Wir kommen zu Ihnen, schauen uns das Grundstück an und entwickeln gemeinsam ein Konzept, das zu Ihnen, Ihrem Stil und Ihrem Budget passt.',
-      },
-      {
-        title: 'Angebot',
-        text:  'Sie erhalten ein detailliertes Angebot mit Zeitplan, Materialien und Gesamtkosten. Erst wenn Sie zufrieden sind, fangen wir an.',
-      },
-      {
-        title: 'Umsetzung',
-        text:  'Wir setzen Ihr Gartenprojekt sorgfältig und termingerecht um. Nach Abschluss zeigen wir Ihnen, wie Sie Ihren neuen Garten am besten pflegen.',
-      },
-    ],
-    einsatzgebiet: [
-      'Von der Erstberatung bis zur fertigen Gartenanlage sind wir in ganz Rheinhessen für Sie tätig. Ob in Mainz, Alzey oder Bad Kreuznach: Wir kennen die Region, wissen welche Pflanzen hier gedeihen und gestalten Ihren Garten so, dass er langfristig Freude macht.',
-      'Jedes Grundstück ist anders, daher gibt es bei uns keine Standardlösung von der Stange. Wir nehmen uns Zeit für eine sorgfältige Planung und entwickeln ein Konzept, das wirklich zu Ihnen passt. Dabei achten wir auf den Einsatz regionaler Pflanzen und Materialien, die zum Klima in Rheinhessen passen und pflegeleicht sind.',
-    ],
-  },
 }
 
 // Shared text used on all three service subpages
@@ -251,23 +211,86 @@ export const SERVICE_PAGE_SHARED = {
 
 export const TESTIMONIALS = [
   {
-    quote:
-      'Die Jungs wissen, was sie tun. Alles lief reibungslos und das Ergebnis kann sich echt sehen lassen. Gerne wieder!',
-    author:   'Ben',
+    quote:  'Wir hatten 4 Heckenabschnitte zu schneiden und in Form zu bringen. Das Team hat sehr akkurat gearbeitet, Preis-Leistung hat gepasst, sehr freundlich waren die beiden auch noch, was will man mehr. Freuen uns auf den nächsten Einsatz.',
+    author: 'Christian Wolf',
     location: 'Google Rezension',
     stars: 5,
   },
   {
-    quote:
-      'Wir hatten 4 Heckenabschnitte zu schneiden und in Form zu bringen. Das Team hat sehr akkurat gearbeitet, Preis-Leistung hat gepasst, sehr freundlich waren die beiden auch noch, was will man mehr. Freuen uns auf den nächsten Einsatz.',
-    author:   'Christian Wolf',
+    quote:  'Wir hatten einen Rückschnitt von Bodendeckern und einer Hecke. Sind sehr zufrieden mit den Arbeiten gewesen. War alles bestens ... auch der Preis und die Zuverlässigkeit sowie Freundlichkeit. Werden auch noch andere Arbeiten mit Green Team machen lassen. Kann ich auf jeden Fall weiterempfehlen.',
+    author: 'Susi Roth',
     location: 'Google Rezension',
     stars: 5,
   },
   {
-    quote:
-      'Was die Jungs leisten, ist einfach nur KLASSE und sie sind jeden Euro wert!!! Akkurat, sehr sauber und mit viel Engagement haben sie unseren Garten bearbeitet.',
-    author:   'Thilo Schmitt',
+    quote:  'Was die Jungs leisten, ist einfach nur KLASSE und sie sind jeden Euro wert!!! Akkurat, sehr sauber und mit viel Engagement haben sie unseren Garten bearbeitet.',
+    author: 'Thilo Schmitt',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Ich kann es kurz und knapp sagen: die Firma hat super gearbeitet, alles entsorgt und gesäubert und pünktlich waren sie auch. Super Arbeit – nächstes Jahr wieder gebucht. Weiter so.',
+    author: 'Eckhard Boor',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Das Team von „GreenTeam" hat meinen verwilderten Garten innerhalb kürzester Zeit in einen Vorzeigegarten verwandelt. Zudem gab\'s tolle Tipps und Ideen. Preis/Leistung ist absolut top! Ich kann „GreenTeam" nur empfehlen – jederzeit wieder!',
+    author: 'Dorothea D.',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Das GreenTeam kam pünktlich zum vereinbarten Termin und erledigte die beauftragten Arbeiten vollständig und ordentlich. Ich freue mich auf eine zukünftige Zusammenarbeit.',
+    author: 'Robert Goetz',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Ein wirkliches Dreamteam die zwei. Super kompetent, sehr freundlich und absolut hilfsbereit. Sie haben bei uns ca. 35 m Thuja geschnitten, welche über 25 Jahre gewuchert ist.',
+    author: 'Anke Wißmann',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Ich bin mit den Arbeiten sehr zufrieden. Die Mitarbeiter sind zuverlässig, freundlich, kompetent, arbeiten schnell und sauber.',
+    author: 'Irene Schott',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Ich wollte meinen Garten nach dem Winter wieder auf Vordermann bringen. Herr Vreven und Herr Kettler haben das so schnell und super hinbekommen! Wir haben fix \'nen Termin ausgemacht, und den Preis empfand ich auch als keine Abzocke.',
+    author: 'Johannes',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Habe den Garten neu anlegen lassen. Die beiden haben super Arbeit geleistet! Freundliches und kompetentes Team! Alles perfekt!',
+    author: 'domi',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Die Jungs wissen, was sie tun – alles lief reibungslos und das Ergebnis kann sich echt sehen lassen. Gerne wieder!',
+    author: 'Ben',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Schneller Termin, guter Preis, saubere Arbeit. Kann ich nur weiterempfehlen!',
+    author: 'Brian Linn',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Super Arbeit. Bin überaus zufrieden. Perfekte Kommunikation. Besser geht es nicht.',
+    author: 'Margareta K.',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Sehr gute Zusammenarbeit; zuverlässig und zuvorkommend. Empfehlenswert.',
+    author: 'Lucyna Bouché',
     location: 'Google Rezension',
     stars: 5,
   },
@@ -334,7 +357,7 @@ export const PAGE_LEISTUNGEN = {
   hero: {
     eyebrow:  'Was wir für Sie tun',
     title:    'Unsere Leistungen',
-    subtitle: 'Vom ersten Schnitt bis zur vollständigen Neugestaltung. Wir begleiten Ihren Garten durch alle Jahreszeiten.',
+    subtitle: 'Gartenpflege und Winterdienst für Privatkunden, Hausverwaltungen und Gewerbebetriebe in Rheinhessen.',
   },
   cardLinkPrefix: 'Mehr zu',
 }

@@ -18,11 +18,8 @@ export const metadata: Metadata = {
 export default function KontaktPage() {
   return (
     <>
-      <section className="bg-green-500 py-16">
+      <section className="bg-green-800 py-16">
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-small font-heading font-semibold uppercase tracking-widest text-green-200 block mb-3">
-            {PAGE_KONTAKT.hero.eyebrow}
-          </span>
           <h1 className="text-h1 font-heading font-bold text-white">{PAGE_KONTAKT.hero.title}</h1>
         </div>
       </section>

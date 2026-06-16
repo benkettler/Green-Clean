@@ -5,7 +5,7 @@ export const contactSchema = z.object({
   nachname: z.string().min(2, 'Bitte geben Sie Ihren Nachnamen ein.'),
   email: z.string().email('Bitte geben Sie eine gültige E-Mail-Adresse ein.'),
   telefon: z.string().optional(),
-  leistung: z.enum(['gartenpflege', 'winterdienst', 'gartenanlage', 'sonstiges'], {
+  leistung: z.enum(['gartenpflege', 'winterdienst', 'sonstiges'], {
     error: 'Bitte wählen Sie eine Leistung aus.',
   }),
   nachricht: z

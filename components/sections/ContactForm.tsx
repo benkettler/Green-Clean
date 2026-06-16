@@ -3,20 +3,20 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Loader2, CheckCircle } from 'lucide-react'
+import { Loader2, CheckCircle, ChevronDown } from 'lucide-react'
 import { contactSchema, type ContactFormData } from '@/lib/validators'
 import Button from '@/components/ui/Button'
-import SectionHeading from '@/components/ui/SectionHeading'
 import { cn } from '@/components/ui/cn'
 import { SITE, CONTACT_FORM } from '@/lib/constants'
 
 const inputClass = cn(
-  'w-full border border-border rounded-xl px-4 py-3 text-body text-charcoal bg-white',
+  'w-full border border-border rounded-xl px-4 py-3 text-charcoal bg-white',
   'focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all duration-200',
   'placeholder:text-muted/60'
 )
 
-const errorClass = 'text-small text-red-600 mt-1'
+const labelClass = 'block text-sm font-semibold text-charcoal mb-1.5'
+const errorClass = 'text-sm text-red-600 mt-1'
 
 interface FieldErrorProps {
   id: string
@@ -34,6 +34,7 @@ function FieldError({ id, message }: FieldErrorProps) {
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [serverError, setServerError] = useState<string | null>(null)
 
   const {
     register,
@@ -44,9 +45,17 @@ export default function ContactForm() {
   })
 
   async function onSubmit(data: ContactFormData) {
-    await new Promise((res) => setTimeout(res, 800))
-    console.log('Kontaktformular:', data)
-    setSubmitted(true)
+    setServerError(null)
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+    if (res.ok) {
+      setSubmitted(true)
+    } else {
+      setServerError('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.')
+    }
   }
 
   return (
@@ -55,36 +64,32 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left: Info */}
           <div>
-            <SectionHeading
-              eyebrow={CONTACT_FORM.eyebrow}
-              title={CONTACT_FORM.title}
-              subtitle={CONTACT_FORM.subtitle}
-              align="left"
-            />
-            <div className="mt-8 flex flex-col gap-4">
+            <h2 className="text-2xl font-bold text-charcoal mb-2">{CONTACT_FORM.title}</h2>
+            <p className="text-muted leading-relaxed mb-8">{CONTACT_FORM.subtitle}</p>
+            <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-1">
-                <span className="text-small font-heading font-semibold text-green-500 uppercase tracking-wider">{CONTACT_FORM.infoLabels.telefon}</span>
+                <span className="text-sm font-semibold text-green-700 uppercase tracking-wider">{CONTACT_FORM.infoLabels.telefon}</span>
                 <a
                   href={`tel:${SITE.phone.replace(/\s/g, '')}`}
-                  className="text-body-lg font-heading font-semibold text-charcoal hover:text-green-500 transition-colors"
+                  className="text-lg font-semibold text-charcoal hover:text-green-700 transition-colors"
                 >
                   {SITE.phone}
                 </a>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="text-small font-heading font-semibold text-green-500 uppercase tracking-wider">{CONTACT_FORM.infoLabels.email}</span>
+                <span className="text-sm font-semibold text-green-700 uppercase tracking-wider">{CONTACT_FORM.infoLabels.email}</span>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="text-body-lg font-heading font-semibold text-charcoal hover:text-green-500 transition-colors"
+                  className="text-lg font-semibold text-charcoal hover:text-green-700 transition-colors"
                 >
                   {SITE.email}
                 </a>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="text-small font-heading font-semibold text-green-500 uppercase tracking-wider">{CONTACT_FORM.infoLabels.region}</span>
-                <p className="text-body-lg font-heading font-semibold text-charcoal">
+                <span className="text-sm font-semibold text-green-700 uppercase tracking-wider">{CONTACT_FORM.infoLabels.region}</span>
+                <p className="text-lg font-semibold text-charcoal">
                   {SITE.region}<br />
-                  <span className="text-body font-normal text-muted">{SITE.cities}</span>
+                  <span className="text-base font-normal text-muted">{SITE.cities}</span>
                 </p>
               </div>
             </div>
@@ -95,12 +100,12 @@ export default function ContactForm() {
             {submitted ? (
               <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-                  <CheckCircle size={32} className="text-green-500" />
+                  <CheckCircle size={32} className="text-green-600" />
                 </div>
-                <h3 className="text-h3 font-heading font-bold text-charcoal">
+                <h3 className="text-xl font-bold text-charcoal">
                   {CONTACT_FORM.success.title}
                 </h3>
-                <p className="text-body text-muted max-w-sm">
+                <p className="text-muted max-w-sm">
                   {CONTACT_FORM.success.subtitle}
                 </p>
               </div>
@@ -109,7 +114,7 @@ export default function ContactForm() {
                 {/* Name row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="vorname" className="block text-small font-heading font-semibold text-charcoal mb-1.5">
+                    <label htmlFor="vorname" className={labelClass}>
                       {CONTACT_FORM.form.vorname.label} <span className="text-red-500" aria-hidden="true">*</span>
                     </label>
                     <input
@@ -125,7 +130,7 @@ export default function ContactForm() {
                     <FieldError id="vorname-error" message={errors.vorname?.message} />
                   </div>
                   <div>
-                    <label htmlFor="nachname" className="block text-small font-heading font-semibold text-charcoal mb-1.5">
+                    <label htmlFor="nachname" className={labelClass}>
                       {CONTACT_FORM.form.nachname.label} <span className="text-red-500" aria-hidden="true">*</span>
                     </label>
                     <input
@@ -144,7 +149,7 @@ export default function ContactForm() {
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-small font-heading font-semibold text-charcoal mb-1.5">
+                  <label htmlFor="email" className={labelClass}>
                     {CONTACT_FORM.form.email.label} <span className="text-red-500" aria-hidden="true">*</span>
                   </label>
                   <input
@@ -162,7 +167,7 @@ export default function ContactForm() {
 
                 {/* Telefon */}
                 <div>
-                  <label htmlFor="telefon" className="block text-small font-heading font-semibold text-charcoal mb-1.5">
+                  <label htmlFor="telefon" className={labelClass}>
                     {CONTACT_FORM.form.telefon.label} <span className="text-muted font-normal">{CONTACT_FORM.form.telefon.optional}</span>
                   </label>
                   <input
@@ -177,27 +182,34 @@ export default function ContactForm() {
 
                 {/* Leistung */}
                 <div>
-                  <label htmlFor="leistung" className="block text-small font-heading font-semibold text-charcoal mb-1.5">
+                  <label htmlFor="leistung" className={labelClass}>
                     {CONTACT_FORM.form.leistung.label} <span className="text-red-500" aria-hidden="true">*</span>
                   </label>
-                  <select
-                    id="leistung"
-                    className={cn(inputClass, errors.leistung && 'border-red-400 focus:ring-red-400')}
-                    aria-invalid={!!errors.leistung}
-                    aria-describedby={errors.leistung ? 'leistung-error' : undefined}
-                    {...register('leistung')}
-                  >
-                    <option value="">{CONTACT_FORM.form.leistung.placeholder}</option>
-                    {CONTACT_FORM.form.leistung.options.map((opt) => (
-                      <option key={opt.value} value={opt.value}>{opt.label}</option>
-                    ))}
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="leistung"
+                      className={cn(
+                        inputClass,
+                        'appearance-none pr-10',
+                        errors.leistung && 'border-red-400 focus:ring-red-400'
+                      )}
+                      aria-invalid={!!errors.leistung}
+                      aria-describedby={errors.leistung ? 'leistung-error' : undefined}
+                      {...register('leistung')}
+                    >
+                      <option value="">{CONTACT_FORM.form.leistung.placeholder}</option>
+                      {CONTACT_FORM.form.leistung.options.map((opt) => (
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      ))}
+                    </select>
+                    <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none" aria-hidden="true" />
+                  </div>
                   <FieldError id="leistung-error" message={errors.leistung?.message} />
                 </div>
 
                 {/* Nachricht */}
                 <div>
-                  <label htmlFor="nachricht" className="block text-small font-heading font-semibold text-charcoal mb-1.5">
+                  <label htmlFor="nachricht" className={labelClass}>
                     {CONTACT_FORM.form.nachricht.label} <span className="text-red-500" aria-hidden="true">*</span>
                   </label>
                   <textarea
@@ -217,14 +229,14 @@ export default function ContactForm() {
                   <label className="flex items-start gap-3 cursor-pointer group">
                     <input
                       type="checkbox"
-                      className="mt-1 w-4 h-4 accent-green-500 shrink-0"
+                      className="mt-1 w-4 h-4 accent-green-600 shrink-0"
                       aria-invalid={!!errors.datenschutz}
                       aria-describedby={errors.datenschutz ? 'datenschutz-error' : undefined}
                       {...register('datenschutz')}
                     />
-                    <span className="text-small text-muted group-hover:text-charcoal transition-colors">
+                    <span className="text-sm text-muted group-hover:text-charcoal transition-colors">
                       {CONTACT_FORM.form.datenschutz.prefix}{' '}
-                      <a href="/datenschutz" className="text-green-500 underline hover:text-green-600">
+                      <a href="/datenschutz" className="text-green-700 underline hover:text-green-800">
                         {CONTACT_FORM.form.datenschutz.linkText}
                       </a>{' '}
                       {CONTACT_FORM.form.datenschutz.suffix} <span className="text-red-500" aria-hidden="true">*</span>
@@ -232,6 +244,12 @@ export default function ContactForm() {
                   </label>
                   <FieldError id="datenschutz-error" message={errors.datenschutz?.message} />
                 </div>
+
+                {serverError && (
+                  <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3" role="alert">
+                    {serverError}
+                  </p>
+                )}
 
                 <Button
                   type="submit"

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:hetzner": "STATIC_EXPORT=true next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -16,6 +17,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.75.0",
+    "resend": "^6.12.3",
     "tailwind-merge": "^3.6.0",
     "zod": "^4.4.3"
   },
@@ -26,6 +28,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.35",
     "postcss": "^8",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
