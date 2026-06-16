@@ -2,8 +2,6 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { contactSchema } from '@/lib/validators'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 const leistungLabels: Record<string, string> = {
   gartenpflege: 'Gartenpflege',
   winterdienst:  'Winterdienst',
@@ -12,6 +10,7 @@ const leistungLabels: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const body = await request.json()
     const data = contactSchema.parse(body)
 
