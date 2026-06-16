@@ -12,15 +12,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          'inline-flex items-center justify-center gap-2 font-heading font-semibold rounded-xl transition-all duration-200 min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed',
+          'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-green-800 focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed',
           {
-            'bg-green-500 text-white hover:bg-green-600 shadow-button hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0':
+            'bg-green-800 text-white hover:bg-green-900 shadow-button hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0':
               variant === 'primary',
-            'border-2 border-green-500 text-green-500 hover:bg-green-50 active:bg-green-100':
+            'border-2 border-green-800 text-green-800 hover:bg-green-50 active:bg-green-100':
               variant === 'secondary',
-            'text-charcoal hover:bg-green-50 hover:text-green-500 active:bg-green-100':
+            'text-charcoal hover:bg-green-50 hover:text-green-800 active:bg-green-100':
               variant === 'ghost',
-            'bg-white text-green-500 hover:bg-green-50 shadow-button hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0':
+            'bg-white text-green-800 hover:bg-green-50 shadow-button hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0':
               variant === 'white',
           },
           {
