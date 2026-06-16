@@ -14,7 +14,7 @@ export default function Footer() {
               Green & Clean
             </Link>
             <p className="text-small text-white/50 max-w-xs leading-relaxed">
-              {SITE.tagline}. Gartenpflege & Winterdienst in {SITE.region}.
+              {SITE.tagline} Gartenpflege & Winterdienst in {SITE.region}.
             </p>
           </div>
 
