@@ -153,7 +153,7 @@ export const SERVICE_PAGES = {
     steps: [
       {
         title: 'Erstgespräch',
-        text:  'Wir schauen uns Ihren Garten gemeinsam an und besprechen, was Sie sich wünschen. Kein Formular, kein Callcenter. Direkter Kontakt mit Jan Kettler.',
+        text:  'Wir schauen uns Ihren Garten gemeinsam an und besprechen, was Sie sich wünschen. Kein Formular, kein Callcenter.',
       },
       {
         title: 'Angebot',
@@ -200,6 +200,7 @@ export const SERVICE_PAGE_SHARED = {
   cities: [
     'Mainz', 'Alzey', 'Bad Kreuznach', 'Ingelheim', 'Nieder-Olm',
     'Bingen am Rhein', 'Wörrstadt', 'Ockenheim', 'Sprendlingen',
+    'Nierstein', 'Oppenheim',
   ],
   breadcrumb: {
     home:     'Startseite',

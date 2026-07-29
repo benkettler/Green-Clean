@@ -35,7 +35,7 @@ export default function Footer() {
               ))}
               <li>
                 <Link href="/kontakt" className="text-small text-white/50 hover:text-green-300 transition-colors duration-200">
-                  Kontakt & Anfrage
+                  Kontakt
                 </Link>
               </li>
               <li>
