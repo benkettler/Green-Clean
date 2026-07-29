@@ -121,7 +121,7 @@ export const SERVICES = [
       'Neuanlage von Rasenflächen und Beeten',
       'Weitere Leistungen nach individueller Absprache',
     ],
-    image:   '/images/gartenpflege.jpg',
+    image:   '/images/gartenpflege.webp',
     eyebrow: 'Regelmäßige Pflege',
   },
   {
@@ -140,7 +140,7 @@ export const SERVICES = [
       'Schnelle Reaktionszeit bei Schneefall',
       'Individuelle Vereinbarung von Art und Umfang',
     ],
-    image:   '/images/winterdienst.jpg',
+    image:   '/images/winterdienst.webp',
     eyebrow: 'Im Winter für Sie da',
   },
 ]

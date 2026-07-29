@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" className={`${inter.variable} ${cormorant.variable}`}>
       <head>
-        <link rel="preload" as="image" href="/images/hero-garden.jpg" />
+        <link rel="preload" as="image" href="/images/hero-garden-preview.webp" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

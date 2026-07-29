@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description:
       'Zuverlässiger Winterdienst in Mainz, Alzey und Bad Kreuznach. Schneeräumung und Streuservice für Privat- und Gewerbekunden.',
     url: '/leistungen/winterdienst',
-    images: [{ url: '/images/winterdienst.jpg', width: 1200, height: 800, alt: 'Winterdienst Rheinhessen – Green & Clean' }],
+    images: [{ url: '/images/winterdienst.webp', width: 1200, height: 800, alt: 'Winterdienst Rheinhessen – Green & Clean' }],
   },
 }
 

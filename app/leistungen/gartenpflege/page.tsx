@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description:
       'Professionelle Gartenpflege in Mainz, Alzey und Bad Kreuznach. Rasenpflege, Heckenschnitt, saisonale Arbeiten. Jetzt anfragen!',
     url: '/leistungen/gartenpflege',
-    images: [{ url: '/images/gartenpflege.jpg', width: 1618, height: 1080, alt: 'Gartenpflege Rheinhessen – Green & Clean' }],
+    images: [{ url: '/images/gartenpflege.webp', width: 1618, height: 1080, alt: 'Gartenpflege Rheinhessen – Green & Clean' }],
   },
 }
 
