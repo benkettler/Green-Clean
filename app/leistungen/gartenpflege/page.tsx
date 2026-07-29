@@ -41,6 +41,8 @@ const serviceSchema = {
     { '@type': 'City', name: 'Bad Kreuznach' },
     { '@type': 'City', name: 'Alzey' },
     { '@type': 'City', name: 'Ingelheim' },
+    { '@type': 'City', name: 'Nierstein' },
+    { '@type': 'City', name: 'Oppenheim' },
   ],
   description: 'Professionelle Gartenpflege in Rheinhessen: Rasenpflege, Heckenschnitt, saisonale Arbeiten und allgemeine Gartenarbeiten.',
   url: 'https://www.greenundclean.com/leistungen/gartenpflege',

@@ -80,6 +80,8 @@ const localBusinessSchema = {
     { '@type': 'City', name: 'Bad Kreuznach' },
     { '@type': 'City', name: 'Alzey' },
     { '@type': 'City', name: 'Ingelheim' },
+    { '@type': 'City', name: 'Nierstein' },
+    { '@type': 'City', name: 'Oppenheim' },
   ],
   openingHoursSpecification: [
     {
