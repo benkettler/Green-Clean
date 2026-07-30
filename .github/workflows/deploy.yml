@@ -23,9 +23,44 @@ jobs:
       - name: Deploy via SFTP
         timeout-minutes: 10
         env:
-          SSHPASS: ${{ secrets.FTP_PASSWORD }}
           SFTP_SERVER: ${{ secrets.FTP_SERVER }}
           SFTP_USER: ${{ secrets.FTP_USERNAME }}
+          SFTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
-          sudo apt-get install -y lftp sshpass
-          lftp -c "set sftp:auto-confirm yes; set sftp:connect-program 'sshpass -e ssh -oStrictHostKeyChecking=no'; set net:timeout 60; open -u $SFTP_USER sftp://$SFTP_SERVER; mirror -R --transfer-all --parallel=5 out/ /; bye"
+          pip install paramiko --quiet
+          python3 - << 'PYEOF'
+          import paramiko, os
+          from pathlib import Path
+
+          sftp_host = os.environ['SFTP_SERVER']
+          sftp_user = os.environ['SFTP_USER']
+          sftp_pass = os.environ['SFTP_PASS']
+
+          transport = paramiko.Transport((sftp_host, 22))
+          transport.connect(username=sftp_user, password=sftp_pass)
+          sftp = paramiko.SFTPClient.from_transport(transport)
+
+          def mkdir_p(sftp, remote):
+              parts = [p for p in remote.split('/') if p]
+              path = ''
+              for part in parts:
+                  path += '/' + part
+                  try:
+                      sftp.mkdir(path)
+                  except Exception:
+                      pass
+
+          local = Path('out')
+          for item in sorted(local.rglob('*')):
+              remote = '/' + str(item.relative_to(local))
+              if item.is_dir():
+                  mkdir_p(sftp, remote)
+              else:
+                  mkdir_p(sftp, os.path.dirname(remote))
+                  sftp.put(str(item), remote)
+                  print(f'Uploaded: {remote}')
+
+          sftp.close()
+          transport.close()
+          print('Deploy abgeschlossen.')
+          PYEOF
