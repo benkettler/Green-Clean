@@ -50,9 +50,10 @@ jobs:
                   except Exception:
                       pass
 
+          remote_base = '/greenundclean'
           local = Path('out')
           for item in sorted(local.rglob('*')):
-              remote = '/' + str(item.relative_to(local))
+              remote = remote_base + '/' + str(item.relative_to(local))
               if item.is_dir():
                   mkdir_p(sftp, remote)
               else:
