@@ -27,7 +27,7 @@ jobs:
           SFTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
           sudo apt-get install -y lftp
-          echo "machine $SFTP_SERVER login $SFTP_USER password $SFTP_PASS" > ~/.netrc
+          printf 'machine %s login %s password %s\n' "$SFTP_SERVER" "$SFTP_USER" "$SFTP_PASS" > ~/.netrc
           chmod 600 ~/.netrc
           lftp -c "set sftp:auto-confirm yes; set net:timeout 30; open sftp://$SFTP_SERVER; mirror -R out/ /; bye"
           rm ~/.netrc
