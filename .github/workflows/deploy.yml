@@ -21,10 +21,11 @@ jobs:
       - run: npm run build:hetzner
 
       - name: Deploy via SFTP
+        timeout-minutes: 10
         env:
           SSHPASS: ${{ secrets.FTP_PASSWORD }}
           SFTP_SERVER: ${{ secrets.FTP_SERVER }}
           SFTP_USER: ${{ secrets.FTP_USERNAME }}
         run: |
           sudo apt-get install -y lftp sshpass
-          lftp -c "set sftp:auto-confirm yes; set sftp:connect-program 'sshpass -e ssh -oStrictHostKeyChecking=no'; open -u $SFTP_USER sftp://$SFTP_SERVER; mirror -R out/ /; bye"
+          lftp -c "set sftp:auto-confirm yes; set sftp:connect-program 'sshpass -e ssh -oStrictHostKeyChecking=no'; set net:timeout 60; open -u $SFTP_USER sftp://$SFTP_SERVER; mirror -R --transfer-all --parallel=5 out/ /; bye"
