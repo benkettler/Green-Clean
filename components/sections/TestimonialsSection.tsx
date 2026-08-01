@@ -44,7 +44,6 @@ export default function TestimonialsSection() {
                   <p className="text-body font-heading font-semibold text-charcoal">
                     {testimonial.author}
                   </p>
-                  <p className="text-small text-muted">{testimonial.location}</p>
                 </div>
               </div>
             </div>
