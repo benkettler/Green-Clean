@@ -53,7 +53,7 @@ export const CTA_SECTION = {
 export const TESTIMONIALS_SECTION = {
   eyebrow:  'Kundenstimmen',
   title:    'Was unsere Kunden sagen',
-  subtitle: '5,0 Sterne aus 14 Bewertungen.',
+  subtitle: '5,0 Sterne aus 15 Bewertungen.',
 }
 
 // ─── Team Section ─────────────────────────────────────────────────────────────
@@ -292,6 +292,12 @@ export const TESTIMONIALS = [
   {
     quote:  'Sehr gute Zusammenarbeit; zuverlässig und zuvorkommend. Empfehlenswert.',
     author: 'Lucyna Bouché',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Hat alles super geklappt! Vom Erstkontakt bis Auftragende. Sehr gutes Preis-Leistung-Verhältnis! Absolut empfehlenswert.',
+    author: 'Ariane Kehl',
     location: 'Google Rezension',
     stars: 5,
   },
