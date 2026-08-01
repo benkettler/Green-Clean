@@ -46,7 +46,6 @@ export default function ReviewsCarousel() {
                 <p className="font-semibold text-charcoal">
                   {review.author}
                 </p>
-                <p className="text-small text-muted">{review.location}</p>
               </div>
             </div>
           ))}

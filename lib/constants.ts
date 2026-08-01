@@ -53,7 +53,7 @@ export const CTA_SECTION = {
 export const TESTIMONIALS_SECTION = {
   eyebrow:  'Kundenstimmen',
   title:    'Was unsere Kunden sagen',
-  subtitle: 'Das sagen unsere Kunden. 5,0 Sterne aus 14 Bewertungen.',
+  subtitle: '5,0 Sterne aus 14 Bewertungen.',
 }
 
 // ─── Team Section ─────────────────────────────────────────────────────────────
