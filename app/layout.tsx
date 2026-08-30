@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Cormorant_Garamond } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -11,12 +11,6 @@ const inter = Inter({
   display: 'swap',
 })
 
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-playfair',
-  display: 'swap',
-})
 
 export const viewport: Viewport = {
   themeColor: '#2D6A4F',
@@ -96,7 +90,7 @@ const localBusinessSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="de" className={inter.variable}>
       <head>
         <link rel="preload" as="image" href="/images/hero-garden-preview.webp" />
         <script

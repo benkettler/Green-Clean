@@ -41,7 +41,7 @@ const config: Config = {
         border:     '#D5CBB5',
       },
       fontFamily: {
-        heading: ['var(--font-playfair)', 'serif'],
+        heading: ['var(--font-inter)', 'sans-serif'],
         body:    ['var(--font-inter)',    'sans-serif'],
       },
       fontSize: {
