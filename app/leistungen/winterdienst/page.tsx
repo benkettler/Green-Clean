@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     'Streudienst Mainz',
     'Winterservice Rheinhessen',
   ],
-  alternates: { canonical: '/leistungen/winterdienst' },
+  alternates: { canonical: 'https://www.greenundclean.com/leistungen/winterdienst/' },
   openGraph: {
     title: 'Winterdienst Mainz & Rheinhessen | Green & Clean',
     description:

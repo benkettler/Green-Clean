@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Kontakt & Anfrage – Gartenpflege Mainz',
   description:
     'Kostenloses Angebot anfragen für Gartenpflege, Winterdienst oder Gartenanlage in Mainz, Alzey und Bad Kreuznach. Antwort innerhalb von 24 Stunden.',
-  alternates: { canonical: '/kontakt' },
+  alternates: { canonical: 'https://www.greenundclean.com/kontakt/' },
   openGraph: {
     title: 'Kontakt & Anfrage – Gartenpflege Mainz',
     description:

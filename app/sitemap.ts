@@ -6,46 +6,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
   return [
     {
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 1.0,
     },
     {
-      url: `${BASE_URL}/leistungen`,
+      url: `${BASE_URL}/leistungen/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/leistungen/gartenpflege`,
+      url: `${BASE_URL}/leistungen/gartenpflege/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/leistungen/winterdienst`,
+      url: `${BASE_URL}/leistungen/winterdienst/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/kontakt`,
+      url: `${BASE_URL}/kontakt/`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/impressum`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.2,
-    },
-    {
-      url: `${BASE_URL}/datenschutz`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.2,
     },
   ]
 }

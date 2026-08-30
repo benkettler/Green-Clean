@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Gartenpflege Mainz & Rheinhessen | Green & Clean' },
   description:
     'Professionelle Gartenpflege in Mainz, Alzey und Bad Kreuznach. Rasenpflege, Heckenschnitt, Winterdienst und Gartenanlage. Regional, persönlich und zuverlässig. Jetzt anfragen!',
-  alternates: { canonical: '/' },
+  alternates: { canonical: 'https://www.greenundclean.com/' },
   openGraph: {
     title: 'Gartenpflege Mainz & Rheinhessen | Green & Clean',
     description:

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     'Gartenservice Mainz',
     'Grünpflege Rheinhessen',
   ],
-  alternates: { canonical: '/leistungen/gartenpflege' },
+  alternates: { canonical: 'https://www.greenundclean.com/leistungen/gartenpflege/' },
   openGraph: {
     title: 'Gartenpflege Mainz & Rheinhessen | Green & Clean',
     description:
