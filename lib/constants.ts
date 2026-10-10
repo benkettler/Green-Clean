@@ -26,7 +26,7 @@ export const HERO = {
     main:      'Professionelle Gartenpflege',
     highlight: 'und Winterdienst.',
   },
-  subtitle: 'Green & Clean betreut Privatkunden, Hausverwaltungen und Gewerbebetriebe in Mainz, Alzey & Bad Kreuznach. Regional, erreichbar und verlässlich.',
+  subtitle: 'Ein gepflegter Garten, ohne eigenen Aufwand. Heckenschnitt, Grünflächenpflege und saisonale Gartenarbeiten in Mainz, Alzey und Bad Kreuznach, persönlich betreut und zuverlässig.',
   cta1: 'Leistungen entdecken',
   cta2: 'Jetzt anfragen',
 }

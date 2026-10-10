@@ -8,12 +8,12 @@ import { SERVICES, PAGE_LEISTUNGEN } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Leistungen: Gartenpflege & Winterdienst Rheinhessen',
   description:
-    'Gartenpflege und Winterdienst in Mainz, Alzey und Bad Kreuznach. Professionell, termingerecht und persönlich betreut. Jetzt anfragen!',
+    'Gartenpflege und Winterdienst in Mainz, Alzey und Bad Kreuznach. Heckenschnitt, Grünflächenpflege und mehr, persönlich betreut und zuverlässig.',
   alternates: { canonical: 'https://www.greenundclean.com/leistungen/' },
   openGraph: {
     title: 'Leistungen: Gartenpflege & Winterdienst Rheinhessen',
     description:
-      'Gartenpflege und Winterdienst in Mainz, Alzey und Bad Kreuznach. Professionell, termingerecht und persönlich betreut.',
+      'Gartenpflege und Winterdienst in Mainz, Alzey und Bad Kreuznach. Heckenschnitt, Grünflächenpflege und mehr, persönlich betreut und zuverlässig.',
     url: '/leistungen',
   },
 }

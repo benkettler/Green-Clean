@@ -8,7 +8,7 @@ import { SERVICES, SERVICE_PAGES, SERVICE_PAGE_SHARED } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Winterdienst Mainz & Rheinhessen – Schneeräumung & Streuservice',
   description:
-    'Zuverlässiger Winterdienst in Mainz, Alzey und Bad Kreuznach. Schneeräumung und Streuservice für Privat- und Gewerbekunden. Schnell, planbar und persönlich betreut.',
+    'Sicher durch den Winter, ohne selbst zu räumen. Schneeräumung und Streuservice in Mainz, Alzey und Bad Kreuznach, schnell und zuverlässig.',
   keywords: [
     'Winterdienst Mainz',
     'Winterdienst Alzey',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Winterdienst Mainz & Rheinhessen | Green & Clean',
     description:
-      'Zuverlässiger Winterdienst in Mainz, Alzey und Bad Kreuznach. Schneeräumung und Streuservice für Privat- und Gewerbekunden.',
+      'Sicher durch den Winter, ohne selbst zu räumen. Schneeräumung und Streuservice in Mainz, Alzey und Bad Kreuznach, schnell und zuverlässig.',
     url: '/leistungen/winterdienst',
     images: [{ url: '/images/winterdienst.webp', width: 1200, height: 800, alt: 'Winterdienst Rheinhessen – Green & Clean' }],
   },
