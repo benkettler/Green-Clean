@@ -53,7 +53,7 @@ export const CTA_SECTION = {
 export const TESTIMONIALS_SECTION = {
   eyebrow:  'Kundenstimmen',
   title:    'Was unsere Kunden sagen',
-  subtitle: '5,0 Sterne aus 15 Bewertungen.',
+  subtitle: '5,0 Sterne aus 17 Bewertungen.',
 }
 
 // ─── Team Section ─────────────────────────────────────────────────────────────
@@ -298,6 +298,18 @@ export const TESTIMONIALS = [
   {
     quote:  'Hat alles super geklappt! Vom Erstkontakt bis Auftragende. Sehr gutes Preis-Leistung-Verhältnis! Absolut empfehlenswert.',
     author: 'Ariane Kehl',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Jan Kettler und sein Team leisten hervorragende Arbeit zum fairen Preis. Alle Arbeiten wurden vereinbarungsgemäß in höchster Qualität und im vorgegebenen zeitlichen Rahmen erledigt. Sehr zu empfehlen.',
+    author: 'Maurice Quirin',
+    location: 'Google Rezension',
+    stars: 5,
+  },
+  {
+    quote:  'Sehr zufrieden mit der Arbeit! Alles wurde professionell, sauber und zuverlässig erledigt. Die Arbeit wurde sorgfältig ausgeführt und meine Wünsche wurden genau berücksichtigt. Sehr freundlich und kompetent – kann ich absolut weiterempfehlen!',
+    author: 'Felix',
     location: 'Google Rezension',
     stars: 5,
   },

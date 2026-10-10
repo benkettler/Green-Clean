@@ -59,7 +59,7 @@ export default function ReviewsCarousel() {
           ))}
         </div>
         <span className="text-sm">
-          5,0 von 5 · 15 Bewertungen
+          5,0 von 5 · 17 Bewertungen
         </span>
       </div>
     </section>
