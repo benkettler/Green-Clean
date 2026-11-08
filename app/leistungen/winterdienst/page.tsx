@@ -38,6 +38,10 @@ const serviceSchema = {
   provider: { '@type': 'LocalBusiness', name: 'Green & Clean', url: 'https://www.greenundclean.com' },
   areaServed: [
     { '@type': 'City', name: 'Mainz' },
+    { '@type': 'Place', name: 'Mainz-Gonsenheim' },
+    { '@type': 'Place', name: 'Mainz-Bretzenheim' },
+    { '@type': 'Place', name: 'Mainz-Finthen' },
+    { '@type': 'City', name: 'Drais' },
     { '@type': 'City', name: 'Nieder-Olm' },
     { '@type': 'City', name: 'Essenheim' },
     { '@type': 'City', name: 'Ober-Olm' },
@@ -123,7 +127,7 @@ export default function WinterdienstPage() {
           <h2 className="text-2xl font-bold text-charcoal mb-8 text-center">
             Unsere Winterdienst-Leistungen
           </h2>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-2xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-2xl lg:max-w-5xl mx-auto">
             {[
               { icon: Footprints, title: 'Gehwege & Hauszugänge', text: 'Schneeräumung und Streudienst' },
               { icon: Car, title: 'Einfahrten & Zufahrten', text: 'Private Zufahrten nach Vereinbarung' },
@@ -145,22 +149,23 @@ export default function WinterdienstPage() {
 
       {/* Ablauf */}
       <section className="section-padding bg-white">
-        <div className="container-max max-w-2xl">
-          <h2 className="text-2xl font-bold text-charcoal mb-10 text-center">
+        <div className="container-max max-w-2xl lg:max-w-4xl">
+          <h2 className="text-2xl font-bold text-charcoal mb-10 lg:mb-14 text-center">
             In 3 Schritten zu Ihrem Winterdienst
           </h2>
-          <div className="flex flex-col">
+          <div className="relative flex flex-col lg:grid lg:grid-cols-3 lg:gap-8">
+            <div className="hidden lg:block absolute top-5 left-[16.67%] right-[16.67%] h-0.5 bg-green-200" aria-hidden="true" />
             {page.steps.map((step, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center text-white font-bold shrink-0">
+              <div key={i} className="flex gap-4 lg:flex-col lg:items-center lg:text-center lg:gap-3 relative">
+                <div className="flex flex-col items-center lg:items-center">
+                  <div className="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center text-white font-bold shrink-0 z-10">
                     {i + 1}
                   </div>
                   {i < page.steps.length - 1 && (
-                    <div className="w-0.5 flex-1 bg-green-200 my-1" aria-hidden="true" />
+                    <div className="w-0.5 flex-1 bg-green-200 my-1 lg:hidden" aria-hidden="true" />
                   )}
                 </div>
-                <div className={cn('flex flex-col gap-1', i < page.steps.length - 1 ? 'pb-8' : '')}>
+                <div className={cn('flex flex-col gap-1', i < page.steps.length - 1 ? 'pb-8 lg:pb-0' : '')}>
                   <h3 className="font-semibold text-charcoal text-base sm:text-lg">{step.title}</h3>
                   <p className="text-muted text-sm sm:text-body leading-relaxed">{step.text}</p>
                 </div>
@@ -213,8 +218,11 @@ export default function WinterdienstPage() {
           <div className="flex flex-wrap justify-center gap-2">
             {[
               'Mainz',
-              'Nieder-Olm',
+              'Mainz-Gonsenheim',
+              'Mainz-Bretzenheim',
               'Mainz-Finthen',
+              'Drais',
+              'Nieder-Olm',
               'Essenheim',
               'Ober-Olm',
               'Weitere Orte auf Anfrage',
