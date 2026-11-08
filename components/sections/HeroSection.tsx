@@ -27,13 +27,22 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/leistungen">
+            <Link href="/leistungen/gartenpflege">
               <Button
                 variant="secondary"
                 size="lg"
                 className="border-white text-white hover:bg-white/10 hover:text-white"
               >
-                {HERO.cta1}
+                {HERO.ctaGartenpflege}
+              </Button>
+            </Link>
+            <Link href="/leistungen/winterdienst">
+              <Button
+                variant="secondary"
+                size="lg"
+                className="border-white text-white hover:bg-white/10 hover:text-white"
+              >
+                {HERO.ctaWinterdienst}
               </Button>
             </Link>
             <Link href="/kontakt">
@@ -42,7 +51,7 @@ export default function HeroSection() {
                 size="lg"
                 className="border-white text-white hover:bg-white/10 hover:text-white"
               >
-                {HERO.cta2}
+                {HERO.ctaKontakt}
               </Button>
             </Link>
           </div>

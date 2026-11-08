@@ -3,9 +3,9 @@ import { Phone } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { SITE, CTA_SECTION } from '@/lib/constants'
 
-export default function CtaSection() {
+export default function CtaSection({ bgClassName = 'bg-background' }: { bgClassName?: string }) {
   return (
-    <section className="bg-background py-20">
+    <section className={`${bgClassName} py-20`}>
       <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-h2 font-heading font-bold text-charcoal mb-4">
           {CTA_SECTION.title}

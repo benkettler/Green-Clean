@@ -17,9 +17,9 @@ export default function ImpressumPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-white">
         <div className="container-max max-w-3xl">
-          <div className="bg-white rounded-2xl shadow-card p-8 lg:p-12 flex flex-col gap-10 text-body text-charcoal leading-relaxed">
+          <div className="bg-white rounded-2xl shadow-card border border-border p-8 lg:p-12 flex flex-col gap-10 text-body text-charcoal leading-relaxed">
 
             <div>
               <h2 className="text-h3 font-heading font-bold text-charcoal mb-4">

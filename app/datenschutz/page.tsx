@@ -42,9 +42,9 @@ export default function DatenschutzPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-white">
         <div className="container-max max-w-3xl">
-          <div className="bg-white rounded-2xl shadow-card p-8 lg:p-12 flex flex-col gap-6">
+          <div className="bg-white rounded-2xl shadow-card border border-border p-8 lg:p-12 flex flex-col gap-6">
 
             <p className="text-small text-muted">Stand: November 2026</p>
 

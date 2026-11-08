@@ -27,8 +27,9 @@ export const HERO = {
     highlight: 'und Winterdienst.',
   },
   subtitle: 'Ein gepflegter Garten, ohne eigenen Aufwand. Heckenschnitt, Grünflächenpflege und saisonale Gartenarbeiten in Mainz, Alzey und Bad Kreuznach, persönlich betreut und zuverlässig.',
-  cta1: 'Leistungen entdecken',
-  cta2: 'Jetzt anfragen',
+  ctaGartenpflege: 'Gartenpflege',
+  ctaWinterdienst: 'Winterdienst',
+  ctaKontakt: 'Jetzt anfragen',
 }
 
 // ─── Services Overview Section ────────────────────────────────────────────────

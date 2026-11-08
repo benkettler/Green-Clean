@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, ArrowRight } from 'lucide-react'
 import HeroSection from '@/components/sections/HeroSection'
-import ServicesOverview from '@/components/sections/ServicesOverview'
 import ReviewsCarousel from '@/components/sections/ReviewsCarousel'
 import CtaSection from '@/components/sections/CtaSection'
+import HomeServiceBar from '@/components/sections/HomeServiceBar'
 
 export const metadata: Metadata = {
   title: { absolute: 'Gartenpflege Mainz & Rheinhessen | Green & Clean' },
@@ -75,9 +75,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ServicesOverview />
       <ReviewsCarousel />
-      <CtaSection />
+      <CtaSection bgClassName="bg-white" />
+
+      <HomeServiceBar />
+
+      {/* Platzhalter, damit die fixierte Leiste auf Mobile nichts verdeckt */}
+      <div className="md:hidden h-20 bg-white" aria-hidden="true" />
     </>
   )
 }
