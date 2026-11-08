@@ -18,3 +18,27 @@ export const contactSchema = z.object({
 })
 
 export type ContactFormData = z.infer<typeof contactSchema>
+
+export const winterdienstAnfrageSchema = z
+  .object({
+    objektart: z.enum(['privat', 'verwaltung', 'gewerbe'], {
+      error: 'Bitte wählen Sie eine Objektart aus.',
+    }),
+    flaechen: z.array(z.string()).min(1, 'Bitte wählen Sie mindestens eine Fläche aus.'),
+    plzOrt: z.string().min(3, 'Bitte geben Sie PLZ und Ort ein.'),
+    flaecheGroesse: z.string().optional(),
+    zeitraum: z.string().optional(),
+    name: z.string().min(2, 'Bitte geben Sie Ihren Namen ein.'),
+    telefon: z.string().optional(),
+    email: z.union([z.string().email('Bitte geben Sie eine gültige E-Mail-Adresse ein.'), z.literal('')]).optional(),
+    nachricht: z.string().optional(),
+    datenschutz: z.literal(true, {
+      error: 'Bitte stimmen Sie der Datenschutzerklärung zu.',
+    }),
+  })
+  .refine((data) => !!data.telefon || !!data.email, {
+    message: 'Bitte geben Sie Telefonnummer oder E-Mail an.',
+    path: ['telefon'],
+  })
+
+export type WinterdienstAnfrageData = z.infer<typeof winterdienstAnfrageSchema>

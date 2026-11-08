@@ -173,21 +173,20 @@ export const SERVICE_PAGES = {
     heroSubtitle: 'Schneeräumung und Streuservice für Privatgrundstücke, Hausverwaltungen und Gewerbeflächen. Verlässlich, witterungsabhängig und mit klarem Einsatzplan.',
     steps: [
       {
-        title: 'Bedarfsermittlung',
-        text:  'Wir besprechen gemeinsam Ihre Flächen, die gewünschten Einsatzzeiten und Ihren individuellen Bedarf für die Wintersaison.',
+        title: 'Unverbindlich anfragen',
+        text:  'Standort und zu räumende Flächen mitteilen.',
       },
       {
-        title: 'Einsatzplan',
-        text:  'Sie erhalten einen festen Einsatzplan mit klaren Zuständigkeiten. So wissen Sie genau, wann und wie wir im Einsatz sind.',
+        title: 'Angebot erhalten',
+        text:  'Wir erstellen ein individuelles Angebot mit Leistungen und Preisen.',
       },
       {
-        title: 'Winterbereit',
-        text:  'Bei Schnee und Glätte sind wir pünktlich und zuverlässig auf Ihren Flächen. Schnelle Reaktionszeit und lückenlose Dokumentation auf Wunsch.',
+        title: 'Winterdienst beauftragen',
+        text:  'Nach Beauftragung nehmen wir Ihr Objekt in unsere Einsatzplanung auf.',
       },
     ],
     einsatzgebiet: [
-      'Unser Winterdienst deckt das gesamte Rheinhessen ab. Von Mainz über Alzey bis Bad Kreuznach sind wir bei Schnee und Glätte für Sie im Einsatz. Dank regionaler Nähe und strukturierter Einsatzplanung können wir schnell reagieren und sicherstellen, dass Ihre Flächen jederzeit sicher und passierbar sind.',
-      'Winterdienst ist Vertrauenssache. Deshalb setzen wir auf feste Ansprechpartner, transparente Abläufe und eine klare Kommunikation vor und während der Wintersaison. Hausverwaltungen schätzen unsere zuverlässige Dokumentation und Erreichbarkeit auch außerhalb der regulären Bürozeiten.',
+      'Green & Clean bietet Winterdienst in Mainz und ausgewählten Orten in Rheinhessen an.',
     ],
   },
 }
