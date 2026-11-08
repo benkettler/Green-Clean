@@ -21,13 +21,13 @@ $telefon        = clean($_POST['telefon'] ?? '');
 $email          = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
 $nachricht      = clean($_POST['nachricht'] ?? '');
 
-if (!$objektart || !$plzOrt || !$name || empty($flaechenArr) || (!$telefon && !$email)) {
+if (!$objektart || !$plzOrt || !$name || !$email || empty($flaechenArr)) {
     http_response_code(400);
     echo json_encode(['error' => 'Pflichtfelder fehlen']);
     exit;
 }
 
-if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
     echo json_encode(['error' => 'Ungültige E-Mail-Adresse']);
     exit;

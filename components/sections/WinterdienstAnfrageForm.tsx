@@ -281,19 +281,21 @@ export default function WinterdienstAnfrageForm() {
                 </div>
                 <div>
                   <label htmlFor="email" className={labelClass}>
-                    E-Mail-Adresse
+                    E-Mail-Adresse <span className="text-red-500" aria-hidden="true">*</span>
                   </label>
                   <input
                     id="email"
                     type="email"
                     autoComplete="email"
                     placeholder="max@beispiel.de"
-                    className={inputClass}
+                    className={cn(inputClass, errors.email && 'border-red-400 focus:ring-red-400')}
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
                     {...register('email')}
                   />
+                  <FieldError id="email-error" message={errors.email?.message} />
                 </div>
               </div>
-              <FieldError id="telefon-error" message={errors.telefon?.message} />
 
               {/* Nachricht */}
               <div>
