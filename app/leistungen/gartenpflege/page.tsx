@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
-  CheckCircle,
   Check,
   Phone,
   Scissors,
@@ -15,6 +14,7 @@ import {
   SlidersHorizontal,
   Sparkles,
   MapPin,
+  ShieldCheck,
   ChevronDown,
 } from 'lucide-react'
 import Button from '@/components/ui/Button'
@@ -121,14 +121,25 @@ export default function GartenpflegePage() {
               </Button>
             </a>
           </div>
+        </div>
+      </section>
 
-          {/* Vertrauenszeile */}
-          <div className="flex items-center justify-center gap-6 mt-6 flex-wrap">
-            {['Persönlich', 'Regional', 'Unverbindlich'].map((label) => (
-              <span key={label} className="inline-flex items-center gap-1.5 text-sm text-charcoal font-medium">
-                <CheckCircle size={16} className="text-green-600 shrink-0" aria-hidden="true" />
-                {label}
-              </span>
+      {/* Vertrauensbereich */}
+      <section className="bg-white py-6 px-4 sm:px-6 lg:px-8">
+        <div className="container-max">
+          <div className="grid grid-cols-3 gap-3">
+            {[
+              { icon: Users, label: 'Persönlich' },
+              { icon: MapPin, label: 'Regional' },
+              { icon: ShieldCheck, label: 'Unverbindlich' },
+            ].map(({ icon: Icon, label }) => (
+              <div
+                key={label}
+                className="bg-green-800 rounded-2xl px-2 py-4 flex flex-col items-center gap-2 text-center"
+              >
+                <Icon size={22} className="text-green-300" aria-hidden="true" />
+                <span className="text-small font-medium text-white leading-tight">{label}</span>
+              </div>
             ))}
           </div>
         </div>
@@ -296,7 +307,7 @@ export default function GartenpflegePage() {
             {WEITERE_ORTE.map((city) => (
               <span
                 key={city}
-                className="inline-flex items-center gap-1.5 bg-sand border border-border text-charcoal text-sm font-medium px-4 py-2 rounded-full"
+                className="inline-flex items-center gap-1.5 bg-green-50 border border-green-200 text-green-800 text-sm font-medium px-4 py-2 rounded-full"
               >
                 <Check size={14} className="text-green-600 shrink-0" aria-hidden="true" />
                 {city}

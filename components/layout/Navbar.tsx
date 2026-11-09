@@ -4,13 +4,19 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { cn } from '@/components/ui/cn'
 import { NAV_LINKS } from '@/lib/constants'
 
 export default function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [mobileSubOpen, setMobileSubOpen] = useState<string | null>(null)
+
+  function isActive(href: string, hasSubLinks?: boolean) {
+    if (hasSubLinks) return pathname === href || pathname.startsWith(href + '/')
+    return pathname === href
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-border">
@@ -35,18 +41,48 @@ export default function Navbar() {
 
         <ul className="hidden md:flex items-center gap-8" role="list">
           {NAV_LINKS.map((link) => (
-            <li key={link.href}>
+            <li key={link.href} className={link.subLinks ? 'relative group' : undefined}>
               <Link
                 href={link.href}
                 className={cn(
-                  'text-body font-body transition-colors duration-200',
-                  pathname === link.href
+                  'flex items-center gap-1 text-body font-body transition-colors duration-200',
+                  isActive(link.href, !!link.subLinks)
                     ? 'text-green-600 font-semibold'
                     : 'text-charcoal hover:text-green-600'
                 )}
               >
                 {link.label}
+                {link.subLinks && <ChevronDown size={15} aria-hidden="true" />}
               </Link>
+
+              {link.subLinks && (
+                <div
+                  className={cn(
+                    'absolute left-0 top-full pt-2 opacity-0 invisible translate-y-1',
+                    'group-hover:opacity-100 group-hover:visible group-hover:translate-y-0',
+                    'focus-within:opacity-100 focus-within:visible focus-within:translate-y-0',
+                    'transition-all duration-150'
+                  )}
+                >
+                  <ul className="bg-white rounded-xl shadow-card border border-border py-2 min-w-[180px]" role="list">
+                    {link.subLinks.map((sub) => (
+                      <li key={sub.href}>
+                        <Link
+                          href={sub.href}
+                          className={cn(
+                            'block px-4 py-2 text-small transition-colors duration-200',
+                            pathname === sub.href
+                              ? 'text-green-600 font-semibold'
+                              : 'text-charcoal hover:bg-green-50 hover:text-green-700'
+                          )}
+                        >
+                          {sub.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </li>
           ))}
         </ul>
@@ -70,18 +106,72 @@ export default function Navbar() {
           <ul className="flex flex-col px-4 py-4 gap-1" role="list">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={cn(
-                    'block px-4 py-3 rounded-xl text-body font-body transition-colors duration-200',
-                    pathname === link.href
-                      ? 'bg-green-800 text-white font-semibold'
-                      : 'text-charcoal hover:bg-green-800 hover:text-white'
-                  )}
-                >
-                  {link.label}
-                </Link>
+                {link.subLinks ? (
+                  <>
+                    <div
+                      className={cn(
+                        'flex items-center justify-between rounded-xl text-body font-body transition-colors duration-200',
+                        isActive(link.href, true)
+                          ? 'bg-green-800 text-white font-semibold'
+                          : 'text-charcoal'
+                      )}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="flex-1 px-4 py-3"
+                      >
+                        {link.label}
+                      </Link>
+                      <button
+                        type="button"
+                        aria-label={mobileSubOpen === link.href ? 'Städte einklappen' : 'Städte ausklappen'}
+                        aria-expanded={mobileSubOpen === link.href}
+                        onClick={() => setMobileSubOpen((v) => (v === link.href ? null : link.href))}
+                        className="px-4 py-3"
+                      >
+                        <ChevronDown
+                          size={18}
+                          className={cn('transition-transform duration-200', mobileSubOpen === link.href && 'rotate-180')}
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </div>
+                    {mobileSubOpen === link.href && (
+                      <ul className="flex flex-col pl-4 mt-1 gap-1" role="list">
+                        {link.subLinks.map((sub) => (
+                          <li key={sub.href}>
+                            <Link
+                              href={sub.href}
+                              onClick={() => setOpen(false)}
+                              className={cn(
+                                'block px-4 py-2.5 rounded-xl text-small transition-colors duration-200',
+                                pathname === sub.href
+                                  ? 'bg-green-50 text-green-700 font-semibold'
+                                  : 'text-muted hover:bg-green-50 hover:text-green-700'
+                              )}
+                            >
+                              {sub.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      'block px-4 py-3 rounded-xl text-body font-body transition-colors duration-200',
+                      pathname === link.href
+                        ? 'bg-green-800 text-white font-semibold'
+                        : 'text-charcoal hover:bg-green-800 hover:text-white'
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

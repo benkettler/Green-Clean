@@ -14,8 +14,16 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: 'Startseite', href: '/' },
-  { label: 'Leistungen', href: '/leistungen' },
-  { label: 'Kontakt',    href: '/kontakt' },
+  {
+    label: 'Gartenpflege',
+    href: '/leistungen/gartenpflege',
+    subLinks: [
+      { label: 'Mainz',         href: '/leistungen/gartenpflege/mainz' },
+      { label: 'Alzey',         href: '/leistungen/gartenpflege/alzey' },
+      { label: 'Bad Kreuznach', href: '/leistungen/gartenpflege/bad-kreuznach' },
+    ],
+  },
+  { label: 'Winterdienst', href: '/leistungen/winterdienst' },
 ]
 
 // ─── Hero Section (Startseite) ────────────────────────────────────────────────
