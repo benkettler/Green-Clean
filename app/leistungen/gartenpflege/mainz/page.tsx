@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   Check,
+  CheckCircle,
   Phone,
   Scissors,
   Sprout,
@@ -82,6 +83,20 @@ export default function GartenpflegeMainzPage() {
           <p className="text-body text-muted mb-5">
             Green &amp; Clean übernimmt die Gartenpflege in Mainz für Privatkunden, Hausverwaltungen und Gewerbebetriebe – von regelmäßiger Rasenpflege bis zur Laubentfernung im Herbst. Als regionaler Betrieb sind wir in Mainz schnell vor Ort.
           </p>
+          <ul className="flex flex-col gap-2 mb-6 sm:items-center" role="list">
+            <li className="flex items-center gap-3">
+              <CheckCircle size={20} className="text-green-600 shrink-0" aria-hidden="true" />
+              <span className="text-charcoal">Einmalig oder regelmäßig</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <CheckCircle size={20} className="text-green-600 shrink-0" aria-hidden="true" />
+              <span className="text-charcoal">Alle Gartenarbeiten</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <CheckCircle size={20} className="text-green-600 shrink-0" aria-hidden="true" />
+              <span className="text-charcoal">Kostenlose Beratung</span>
+            </li>
+          </ul>
           <div className="flex flex-col gap-3">
             <a href="#anfrage">
               <Button variant="primary" size="lg" className="w-full">
