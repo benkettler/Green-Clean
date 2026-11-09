@@ -37,3 +37,18 @@ export const winterdienstAnfrageSchema = z.object({
 })
 
 export type WinterdienstAnfrageData = z.infer<typeof winterdienstAnfrageSchema>
+
+export const gartenpflegeAnfrageSchema = z.object({
+  auftragsart: z.enum(['einmalig', 'regelmaessig', 'unklar']).optional(),
+  arbeiten: z.array(z.string()).min(1, 'Bitte wählen Sie mindestens eine Leistung aus.'),
+  plzOrt: z.string().min(3, 'Bitte geben Sie PLZ und Ort ein.'),
+  beschreibung: z.string().optional(),
+  name: z.string().min(2, 'Bitte geben Sie Ihren Vor- und Nachnamen ein.'),
+  telefon: z.string().optional(),
+  email: z.string().email('Bitte geben Sie eine gültige E-Mail-Adresse ein.'),
+  datenschutz: z.literal(true, {
+    error: 'Bitte stimmen Sie der Datenschutzerklärung zu.',
+  }),
+})
+
+export type GartenpflegeAnfrageData = z.infer<typeof gartenpflegeAnfrageSchema>
