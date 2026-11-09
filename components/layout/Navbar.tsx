@@ -13,9 +13,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [mobileSubOpen, setMobileSubOpen] = useState<string | null>(null)
 
+  function normalize(path: string) {
+    return path.endsWith('/') ? path : path + '/'
+  }
+
   function isActive(href: string, hasSubLinks?: boolean) {
-    if (hasSubLinks) return pathname === href || pathname.startsWith(href + '/')
-    return pathname === href
+    const normPath = normalize(pathname)
+    const normHref = normalize(href)
+    if (hasSubLinks) return normPath === normHref || normPath.startsWith(normHref)
+    return normPath === normHref
   }
 
   return (
@@ -71,7 +77,7 @@ export default function Navbar() {
                           href={sub.href}
                           className={cn(
                             'block px-4 py-2 text-small transition-colors duration-200',
-                            pathname === sub.href
+                            normalize(pathname) === normalize(sub.href)
                               ? 'text-green-600 font-semibold'
                               : 'text-charcoal hover:bg-green-50 hover:text-green-700'
                           )}
@@ -146,7 +152,7 @@ export default function Navbar() {
                               onClick={() => setOpen(false)}
                               className={cn(
                                 'block px-4 py-2.5 rounded-xl text-small transition-colors duration-200',
-                                pathname === sub.href
+                                normalize(pathname) === normalize(sub.href)
                                   ? 'bg-green-50 text-green-700 font-semibold'
                                   : 'text-muted hover:bg-green-50 hover:text-green-700'
                               )}
@@ -164,7 +170,7 @@ export default function Navbar() {
                     onClick={() => setOpen(false)}
                     className={cn(
                       'block px-4 py-3 rounded-xl text-body font-body transition-colors duration-200',
-                      pathname === link.href
+                      isActive(link.href)
                         ? 'bg-green-800 text-white font-semibold'
                         : 'text-charcoal hover:bg-green-800 hover:text-white'
                     )}

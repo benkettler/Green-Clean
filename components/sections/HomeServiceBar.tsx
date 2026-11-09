@@ -18,11 +18,11 @@ export default function HomeServiceBar() {
 
   return (
     <div
-      className={`md:hidden fixed inset-x-0 bottom-0 z-40 bg-green-800 border-t border-green-700 px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] transition-transform duration-300 ${
+      className={`fixed inset-x-0 bottom-0 z-40 bg-green-800 border-t border-green-700 px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] transition-transform duration-300 ${
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <div className="flex items-center gap-3">
+      <div className="container-max flex items-center gap-3">
         <Link
           href="/leistungen/gartenpflege/"
           className="flex-1 inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold rounded-xl px-4 py-3 text-sm"

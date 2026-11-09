@@ -32,11 +32,11 @@ export default function MobileContactBar() {
 
   return (
     <div
-      className={`md:hidden fixed inset-x-0 bottom-0 z-40 bg-green-800 border-t border-green-700 px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] transition-transform duration-300 ${
+      className={`fixed inset-x-0 bottom-0 z-40 bg-green-800 border-t border-green-700 px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] transition-transform duration-300 ${
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <div className="flex items-center gap-3">
+      <div className="container-max flex items-center gap-3">
         <a
           href={`tel:${SITE.phone.replace(/\s/g, '')}`}
           className="flex-1 inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold rounded-xl px-4 py-3 text-sm"
@@ -46,7 +46,7 @@ export default function MobileContactBar() {
         </a>
         <a
           href="#anfrage"
-          className="flex-[1.4] inline-flex items-center justify-center gap-2 bg-green-600 text-white font-semibold rounded-xl px-4 py-3 text-sm"
+          className="flex-[1.4] sm:flex-1 inline-flex items-center justify-center gap-2 bg-green-600 text-white font-semibold rounded-xl px-4 py-3 text-sm"
         >
           <Send size={16} aria-hidden="true" />
           Anfrage

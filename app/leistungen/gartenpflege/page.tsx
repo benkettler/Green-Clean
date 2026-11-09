@@ -342,7 +342,7 @@ export default function GartenpflegePage() {
       <MobileContactBar />
 
       {/* Platzhalter, damit die fixierte Leiste auf Mobile nichts verdeckt */}
-      <div className="md:hidden h-20 bg-white" aria-hidden="true" />
+      <div className="h-20 bg-white" aria-hidden="true" />
     </>
   )
 }
