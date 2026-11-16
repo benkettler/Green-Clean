@@ -18,6 +18,7 @@ import {
 import Button from '@/components/ui/Button'
 import { cn } from '@/components/ui/cn'
 import GartenpflegeAnfrageForm from '@/components/sections/GartenpflegeAnfrageForm'
+import ReviewsCarousel from '@/components/sections/ReviewsCarousel'
 import MobileContactBar from '@/components/sections/MobileContactBar'
 import { SITE } from '@/lib/constants'
 
@@ -133,6 +134,8 @@ export default function GartenpflegeBadKreuznachPage() {
           </div>
         </div>
       </section>
+
+      <ReviewsCarousel />
 
       {/* Leistungen */}
       <section className="section-padding bg-white">

@@ -3,6 +3,7 @@ import { MapPin, CheckCircle, Check, Phone, Users, ClipboardCheck, Footprints, C
 import Button from '@/components/ui/Button'
 import { cn } from '@/components/ui/cn'
 import WinterdienstAnfrageForm from '@/components/sections/WinterdienstAnfrageForm'
+import ReviewsCarousel from '@/components/sections/ReviewsCarousel'
 import MobileContactBar from '@/components/sections/MobileContactBar'
 import { SITE, SERVICE_PAGES, SERVICE_PAGE_SHARED } from '@/lib/constants'
 
@@ -120,6 +121,8 @@ export default function WinterdienstPage() {
           </div>
         </div>
       </section>
+
+      <ReviewsCarousel />
 
       {/* Leistungen */}
       <section className="section-padding bg-white">
